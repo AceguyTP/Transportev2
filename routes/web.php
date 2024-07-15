@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\rutasController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('rutas', function () {
-    return "Estas son las rutas disponibles";
-});
 
-Route::get('rutas/{ruta}', function ($ruta) {
-    return "Esta ruta lleva a $ruta";
-});
+Route::get('/', HomeController::class);
+
+Route::get('rutas', [rutasController::class, 'index']);
+
+Route::get('rutas/informacion', [rutasController::class, 'create']);
+
+Route::get('rutas/{ruta}', [rutasController::class, 'show']);
