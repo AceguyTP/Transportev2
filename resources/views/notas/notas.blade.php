@@ -23,7 +23,7 @@
                     <td>{{ $nota->created_at->format('d/m/Y H:i') }}</td>
                     <td>{{ Str::limit($nota->contenido, 50) }}</td>
                     <td>
-                        <a href="create.php">Crear</a> |
+                        <a href="notas.create.php">Crear</a> |
                         <a href="{{ route('notas.edit', $nota->id) }}">Editar</a> |
                         <a href="{{ route('notas.show', $nota->id) }}">Ver</a> |
                         <a href="{{ route('notas.destroy', $nota->id) }}">Eliminar</a>

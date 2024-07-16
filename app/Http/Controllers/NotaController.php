@@ -14,6 +14,14 @@ class NotaController extends Controller
         return view('notas.index', compact('notas'));
     }
 
+    public function create()
+    {
+        // Cargar la vista notas.create y pasar datos opcionales
+        return view('notas.create', [
+            'tituloPredefinido' => 'Nueva nota', // Ejemplo de dato
+        ]);
+    }
+
     public function store(Request $request)
     {
         // Validar los datos de entrada
@@ -41,10 +49,5 @@ class NotaController extends Controller
         return redirect()->route('notas.index')->with('success', '¡Nota creada con éxito!');
     }
 
-    public function create()
-    {
-        return view('notas.create');
-    }
-
-    // ... (definir métodos para create, edit, show, update, destroy)
+    // ... (definir métodos para edit, show, update, destroy)
 }
