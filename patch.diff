@@ -1,0 +1,44 @@
+diff --git a/resources/views/welcome.blade.php b/resources/views/welcome.blade.php
+index a9898e3..4f23eb8 100644
+--- a/resources/views/welcome.blade.php
++++ b/resources/views/welcome.blade.php
+@@ -4,7 +4,7 @@
+         <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+-        <title>Laravel</title>
++        <title>NotiBlog</title>
+ 
+         <!-- Fonts -->
+         <link rel="preconnect" href="https://fonts.bunny.net">
+diff --git a/routes/web.php b/routes/web.php
+index f0fc7a9..f6ab62b 100644
+--- a/routes/web.php
++++ b/routes/web.php
+@@ -1,15 +1,15 @@
+ <?php
+ 
+ use Illuminate\Support\Facades\Route;
++use App\Http\Controllers\HomeController;
++use App\Http\Controllers\rutasController;
+ 
+-Route::get('/', function () {
+-    return view('welcome');
+-});
+ 
+-Route::get('rutas', function () {
+-    return "Estas son las rutas disponibles";
+-});
+ 
+-Route::get('rutas/{ruta}', function ($ruta) {
+-    return "Esta ruta lleva a $ruta";
+-});
+\ No newline at end of file
++Route::get('/', HomeController::class);
++
++Route::get('rutas', [rutasController::class, 'index']);
++
++Route::get('rutas/informacion', [rutasController::class, 'create']);
++
++Route::get('rutas/{ruta}', [rutasController::class, 'show']);
+\ No newline at end of file
